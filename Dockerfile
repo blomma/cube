@@ -1,10 +1,10 @@
-FROM mcr.microsoft.com/dotnet/aspnet:6.0-focal AS base
+FROM mcr.microsoft.com/dotnet/aspnet:6.0-focal-arm64v8 AS base
 WORKDIR /app
 EXPOSE 80
 
 ENV ASPNETCORE_URLS=http://+:80
 
-FROM mcr.microsoft.com/dotnet/sdk:6.0-focal AS build
+FROM mcr.microsoft.com/dotnet/sdk:6.0-focal-arm64v8 AS build
 WORKDIR /src
 COPY ["cube.csproj", "./"]
 RUN dotnet restore "cube.csproj"
