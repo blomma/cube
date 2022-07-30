@@ -13,7 +13,7 @@ WORKDIR "/src/."
 RUN dotnet build "cube.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "cube.csproj" -c Release -r linux-arm -o /app/publish /p:UseAppHost=true
+RUN dotnet publish "cube.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
